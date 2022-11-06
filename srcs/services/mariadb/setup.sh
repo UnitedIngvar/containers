@@ -13,4 +13,4 @@ then
 fi
 
 service mysql stop
-exec /usr/sbin/mysqld_safe -u root
+exec /usr/sbin/mysqld -u root
