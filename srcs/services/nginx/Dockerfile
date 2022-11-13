@@ -13,11 +13,11 @@ RUN		openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 \
 
 COPY	./conf/todo.conf /etc/nginx/todo.conf
 
-COPY	./conf/hosts /etc/
+COPY	./conf/hosts /etc/tmphosts
 
 
 ENTRYPOINT	["/usr/bin/dumb-init"]
 
 EXPOSE	443
 
-CMD		["nginx", "-g", "daemon off;"]
+CMD		["nginx", "-c", "/etc/nginx/todo.conf", "-g", "daemon off;"]

@@ -25,6 +25,7 @@ services:
      - inception_21
     volumes:
      - wp_vol:/var/www/
+    hostname: hcrakeha.42.fr
   wordpress_service:
     build: ./services/wordpress/
     container_name: wordpress
@@ -39,7 +40,17 @@ services:
 
 volumes:
    wp_vol:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ~/home/hcrakeha/data
     external: false
    db_vol:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ~/home/hcrakeha/data
     external: false
 
